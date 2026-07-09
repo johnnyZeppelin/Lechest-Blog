@@ -1,0 +1,32 @@
+[
+  {
+    "id": "warm-room-first-note",
+    "title": "First Log From The Warm Room",
+    "subtitle": "A small welcome note from a snow-night lounge.",
+    "date": "2026-07-09",
+    "mood": "firelight",
+    "minutes": 3,
+    "tags": ["Welcome", "Notes", "Lechest"],
+    "body": "The door is open. Snow gathers quietly beyond the window, and the room keeps its little amber weather.\n\nThis space is Johnny Zeppelin Lechest's lounge: a place for field notes, half-polished ideas, tiny experiments, and late-night fragments that feel better beside a fire.\n\nCome in softly. Leave the cold on the mat. There is always another cup of hot chocolate somewhere near the page."
+  },
+  {
+    "id": "notes-beside-the-window",
+    "title": "Notes Beside The Window",
+    "subtitle": "On building a blog that feels less like a feed and more like a room.",
+    "date": "2026-07-08",
+    "mood": "snowlight",
+    "minutes": 4,
+    "tags": ["Design", "Web", "Atmosphere"],
+    "body": "A personal site does not have to shout to feel alive. Sometimes the better trick is to make it breathe: warm contrast, quiet motion, places to pause, and enough texture that the page feels touched by human hands.\n\nThe best corner of the internet is not always the busiest one. It is the one that remembers your coat, your cup, and the exact kind of silence you like after midnight."
+  },
+  {
+    "id": "tiny-romantic-machine",
+    "title": "A Tiny Romantic Machine",
+    "subtitle": "Why a little game belongs in a blog.",
+    "date": "2026-07-07",
+    "mood": "rose",
+    "minutes": 2,
+    "tags": ["Game", "Love", "Pixel"],
+    "body": "A blog can hold essays, yes. It can also hold a secret.\n\nThe game tab is a tiny machine for turning a few minutes of wandering into a small confession. It asks for almost nothing: a little attention, a little warmth, and one final walk through snow toward a lit window."
+  }
+]

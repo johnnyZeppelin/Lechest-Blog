@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17110e">
+    <meta
+      name="description"
+      content="Lechest Blog, the warm snow-night lounge of Johnny Zeppelin Lechest."
+    >
+    <meta property="og:title" content="Lechest Blog">
+    <meta
+      property="og:description"
+      content="A quiet lounge for notes, games, and warm sparks by the fire."
+    >
+    <meta property="og:image" content="./assets/hearth-hero.png">
+    <title>Lechest Blog</title>
+    <link rel="preload" as="image" href="./assets/hearth-hero.png">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./config.js"></script>
+  </head>
+  <body>
+    <div class="ambient-snow" aria-hidden="true"></div>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="#lounge" aria-label="Lechest Blog home">
+          <img src="./assets/lechest-avatar.png" alt="Lechest Blog avatar">
+          <span>
+            <strong>Lechest Blog</strong>
+            <small>Johnny Zeppelin Lechest</small>
+          </span>
+        </a>
+        <nav class="nav-tabs" aria-label="Primary">
+          <a href="#lounge" data-nav="lounge">Lounge</a>
+          <a href="#blog" data-nav="blog">Blog</a>
+          <a href="#game" data-nav="game">Game</a>
+          <a href="#studio" data-nav="studio">Studio</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="view active" id="lounge" data-view="lounge">
+          <div class="hero">
+            <div class="hero-copy">
+              <p class="eyebrow">Snow outside. Fire inside.</p>
+              <h1>Lechest Blog</h1>
+              <p>
+                The warm lounge of Johnny Zeppelin Lechest: notes, tiny
+                experiments, quiet sparks, and late-night letters by the fire.
+              </p>
+              <div class="hero-actions">
+                <a class="button primary" href="#blog">Read Notes</a>
+                <a class="button ghost" href="#game">Play The Secret</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lounge-grid">
+            <article class="feature-panel intro-panel">
+              <p class="eyebrow">Personal brief</p>
+              <h2>This is the lounge.</h2>
+              <p>
+                A room for Johnny Zeppelin Lechest's essays, field notes, web
+                experiments, and gentle after-hours ideas.
+              </p>
+              <div class="contact-row">
+                <a href="https://github.com/johnnyZeppelin" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="mailto:sflijohn@foxmail.com">sflijohn@foxmail.com</a>
+              </div>
+            </article>
+
+            <article class="feature-panel latest-panel">
+              <p class="eyebrow">Latest from the shelf</p>
+              <div id="latestPost"></div>
+            </article>
+          </div>
+
+          <section class="map-band" aria-labelledby="visitorMapTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Visitor hearth map</p>
+              <h2 id="visitorMapTitle">A little warmth around the world.</h2>
+            </div>
+            <div class="map-shell">
+              <svg
+                class="world-map"
+                id="visitorMap"
+                viewBox="0 0 1000 500"
+                role="img"
+                aria-label="World map with visitor lights"
+              >
+                <path d="M105 170 C130 120 205 105 250 135 C285 158 300 205 260 230 C220 258 160 245 125 215 C100 193 92 188 105 170 Z"></path>
+                <path d="M245 260 C290 245 340 278 350 325 C360 375 330 430 285 452 C250 420 240 360 218 320 C200 288 212 270 245 260 Z"></path>
+                <path d="M420 130 C470 95 555 112 592 160 C625 205 590 240 530 238 C472 235 405 205 390 165 C385 150 395 138 420 130 Z"></path>
+                <path d="M535 250 C585 238 640 278 650 340 C662 410 610 462 565 445 C535 405 510 350 505 298 C503 272 512 256 535 250 Z"></path>
+                <path d="M645 150 C720 95 845 115 905 190 C940 232 922 275 870 285 C800 300 690 260 625 205 C605 188 615 168 645 150 Z"></path>
+                <path d="M765 348 C810 325 875 350 895 395 C865 430 812 435 770 410 C742 392 738 363 765 348 Z"></path>
+                <g id="visitorPins"></g>
+              </svg>
+              <div class="map-caption" id="mapCaption">Warming the map...</div>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="blog" data-view="blog">
+          <div class="section-heading compact">
+            <p class="eyebrow">Blog</p>
+            <h2>Letters from the fireline.</h2>
+          </div>
+          <div class="blog-layout">
+            <aside class="post-list-panel">
+              <div class="tag-strip" id="tagStrip"></div>
+              <div class="post-list" id="postList"></div>
+            </aside>
+            <article class="article-reader" id="articleReader"></article>
+          </div>
+        </section>
+
+        <section class="view" id="game" data-view="game">
+          <div class="section-heading compact">
+            <p class="eyebrow">Pixel secret</p>
+            <h2>Snowlight Courier</h2>
+          </div>
+          <div class="game-layout">
+            <div class="game-stage">
+              <canvas id="gameCanvas" width="384" height="256"></canvas>
+              <div class="game-message" id="gameMessage">The cabin is waiting for three small warm things.</div>
+            </div>
+            <div class="game-side">
+              <div class="inventory" id="inventory"></div>
+              <button class="button primary" id="restartGame" type="button">Restart</button>
+              <div class="dpad" aria-label="Move">
+                <button type="button" data-move="up" aria-label="Move up">U</button>
+                <button type="button" data-move="left" aria-label="Move left">L</button>
+                <button type="button" data-move="right" aria-label="Move right">R</button>
+                <button type="button" data-move="down" aria-label="Move down">D</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="studio" data-view="studio">
+          <div class="section-heading compact">
+            <p class="eyebrow">Owner Studio</p>
+            <h2>Write from the page.</h2>
+          </div>
+          <div class="studio-layout">
+            <form class="owner-login" id="ownerLogin">
+              <label>
+                GitHub fine-grained token
+                <input id="tokenInput" type="password" autocomplete="off" placeholder="github_pat_...">
+              </label>
+              <label class="check-row">
+                <input id="rememberToken" type="checkbox">
+                <span>Remember on this browser</span>
+              </label>
+              <button class="button primary" type="submit">Connect GitHub</button>
+              <p class="studio-status" id="authStatus">Only johnnyZeppelin can publish here.</p>
+            </form>
+
+            <form class="composer" id="composer">
+              <div class="field-grid">
+                <label>
+                  Title
+                  <input id="postTitle" type="text" required placeholder="A quiet title">
+                </label>
+                <label>
+                  Subtitle
+                  <input id="postSubtitle" type="text" placeholder="One line by the fire">
+                </label>
+                <label>
+                  Tags
+                  <input id="postTags" type="text" placeholder="Design, Notes, Life">
+                </label>
+                <label>
+                  Mood
+                  <input id="postMood" type="text" placeholder="snowlight">
+                </label>
+              </div>
+              <label>
+                Body
+                <textarea id="postBody" required placeholder="Write in Markdown..."></textarea>
+              </label>
+              <div class="composer-actions">
+                <button class="button ghost" type="button" id="previewPost">Preview</button>
+                <button class="button primary" type="submit">Post to GitHub</button>
+              </div>
+              <p class="studio-status" id="publishStatus"></p>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
