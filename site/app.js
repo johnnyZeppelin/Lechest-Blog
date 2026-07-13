@@ -700,7 +700,7 @@
       game.steps += 1;
       collectAt(nx, ny);
       if (nx === door.x && ny === door.y) {
-        if (items.every(function (item) { return game.found[item.id]; })) {
+        if (allItemsFound()) {
           game.finished = true;
           setGameMessage("The door opens. The little room saved its warmest light for the end.");
         } else {
@@ -720,8 +720,17 @@
           } else {
             setGameMessage("The rose keeps a brave color even in winter.");
           }
+          if (allItemsFound()) {
+            setGameMessage("Everything is gathered. The cabin door is glowing now. Step inside.");
+          }
           drawInventory();
         }
+      });
+    }
+
+    function allItemsFound() {
+      return items.every(function (item) {
+        return game.found[item.id];
       });
     }
 
@@ -776,6 +785,9 @@
       drawWorld();
       drawCabin();
       drawItems();
+      if (allItemsFound()) {
+        drawCabinPrompt();
+      }
       drawPlayer();
       drawSnow();
     }
@@ -827,6 +839,21 @@
       ctx.fillStyle = "#f1b35f";
       ctx.fillRect(20 * tile + 3, 3 * tile + 4, 7, 6);
       ctx.fillRect(22 * tile - 2, 3 * tile + 4, 7, 6);
+    }
+
+    function drawCabinPrompt() {
+      var pulse = Math.floor(frame / 12) % 2;
+      ctx.fillStyle = pulse ? "#fff6e7" : "#f1b35f";
+      ctx.fillRect(289, 68, 54, 16);
+      ctx.fillStyle = "#8f2735";
+      ctx.font = "10px monospace";
+      ctx.fillText("ENTER", 297, 80);
+      ctx.fillStyle = pulse ? "#f1b35f" : "#fff6e7";
+      ctx.fillRect(337, 88, 18, 5);
+      ctx.fillRect(350, 84, 5, 13);
+      ctx.fillRect(355, 87, 4, 7);
+      ctx.fillStyle = "rgba(241,179,95,0.28)";
+      ctx.fillRect(21 * tile + 2, 5 * tile - 1, 12, 18);
     }
 
     function drawItems() {
@@ -894,14 +921,19 @@
       ctx.fillRect(114, 132, 56, 48);
       ctx.fillStyle = "#f1b35f";
       ctx.fillRect(126, 142, 32, 26);
+      ctx.fillStyle = "#7b4c32";
+      ctx.fillRect(176, 178, 96, 10);
       ctx.fillStyle = "#8f2735";
       ctx.fillRect(225, 134, 6, 38);
       ctx.fillStyle = "#ff8aa0";
       ctx.fillRect(216, 126, 24, 18);
       ctx.fillStyle = "#fff6e7";
       ctx.font = "16px monospace";
-      ctx.fillText("I love you", 147, 224);
-      drawPixelDog(246, 154);
+      ctx.fillText("I LOVE YOU", 116, 220);
+      ctx.fillText("LL \u2764\uFE0F\u2764\uFE0F OO", 120, 240);
+      drawBritishShorthair(84, 158);
+      drawBeagle(184, 152);
+      drawPixelDog(258, 154);
     }
 
     function drawPixelDog(x, y) {
@@ -920,6 +952,47 @@
       ctx.fillStyle = "#d98f45";
       ctx.fillRect(x + 12, y + 31, 5, 7);
       ctx.fillRect(x + 30, y + 31, 5, 7);
+    }
+
+    function drawBeagle(x, y) {
+      ctx.fillStyle = "#f3d9ad";
+      ctx.fillRect(x + 6, y + 12, 44, 22);
+      ctx.fillRect(x + 10, y + 2, 26, 20);
+      ctx.fillStyle = "#7b4c32";
+      ctx.fillRect(x + 22, y + 12, 26, 12);
+      ctx.fillRect(x + 6, y + 4, 9, 18);
+      ctx.fillRect(x + 33, y + 4, 9, 18);
+      ctx.fillStyle = "#fff6e7";
+      ctx.fillRect(x + 15, y + 7, 15, 14);
+      ctx.fillRect(x + 7, y + 23, 18, 11);
+      ctx.fillStyle = "#2a1710";
+      ctx.fillRect(x + 18, y + 10, 3, 3);
+      ctx.fillRect(x + 28, y + 10, 3, 3);
+      ctx.fillRect(x + 23, y + 16, 5, 3);
+      ctx.fillStyle = "#f3d9ad";
+      ctx.fillRect(x + 49, y + 14, 11, 5);
+      ctx.fillStyle = "#7b4c32";
+      ctx.fillRect(x + 12, y + 34, 5, 8);
+      ctx.fillRect(x + 38, y + 34, 5, 8);
+    }
+
+    function drawBritishShorthair(x, y) {
+      ctx.fillStyle = "#9aa3aa";
+      ctx.fillRect(x + 9, y + 16, 34, 22);
+      ctx.fillRect(x + 12, y + 4, 25, 21);
+      ctx.fillStyle = "#7d8790";
+      ctx.fillRect(x + 11, y + 1, 7, 8);
+      ctx.fillRect(x + 31, y + 1, 7, 8);
+      ctx.fillRect(x + 40, y + 19, 9, 5);
+      ctx.fillRect(x + 45, y + 14, 5, 8);
+      ctx.fillStyle = "#f1b35f";
+      ctx.fillRect(x + 18, y + 12, 3, 3);
+      ctx.fillRect(x + 29, y + 12, 3, 3);
+      ctx.fillStyle = "#2a1710";
+      ctx.fillRect(x + 23, y + 17, 5, 3);
+      ctx.fillStyle = "#7d8790";
+      ctx.fillRect(x + 15, y + 38, 5, 7);
+      ctx.fillRect(x + 32, y + 38, 5, 7);
     }
   }
 
