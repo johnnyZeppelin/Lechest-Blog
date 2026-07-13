@@ -931,9 +931,11 @@
       ctx.font = "16px monospace";
       ctx.fillText("I LOVE YOU", 116, 220);
       ctx.fillText("LL \u2764\uFE0F\u2764\uFE0F OO", 120, 240);
-      drawBritishShorthair(84, 158);
-      drawBeagle(184, 152);
-      drawPixelDog(258, 154);
+      drawBritishShorthair(28, 160);
+      drawTuxedoDog(92, 154);
+      drawBeagle(158, 152);
+      drawBlueWhiteBritishShorthair(236, 160);
+      drawPixelDog(304, 156);
     }
 
     function drawPixelDog(x, y) {
@@ -976,6 +978,28 @@
       ctx.fillRect(x + 38, y + 34, 5, 8);
     }
 
+    function drawTuxedoDog(x, y) {
+      ctx.fillStyle = "#151516";
+      ctx.fillRect(x + 5, y + 12, 44, 22);
+      ctx.fillRect(x + 8, y + 2, 28, 20);
+      ctx.fillStyle = "#252528";
+      ctx.fillRect(x + 3, y + 3, 9, 17);
+      ctx.fillRect(x + 33, y + 3, 9, 17);
+      ctx.fillStyle = "#fff6e7";
+      ctx.fillRect(x + 17, y + 8, 12, 11);
+      ctx.fillRect(x + 18, y + 23, 18, 11);
+      ctx.fillRect(x + 10, y + 34, 7, 8);
+      ctx.fillRect(x + 35, y + 34, 7, 8);
+      ctx.fillStyle = "#e8d8c7";
+      ctx.fillRect(x + 21, y + 15, 5, 3);
+      ctx.fillStyle = "#fff6e7";
+      ctx.fillRect(x + 49, y + 14, 10, 5);
+      ctx.fillStyle = "#2a1710";
+      ctx.fillRect(x + 15, y + 10, 3, 3);
+      ctx.fillRect(x + 29, y + 10, 3, 3);
+      ctx.fillRect(x + 22, y + 15, 4, 3);
+    }
+
     function drawBritishShorthair(x, y) {
       ctx.fillStyle = "#9aa3aa";
       ctx.fillRect(x + 9, y + 16, 34, 22);
@@ -991,6 +1015,32 @@
       ctx.fillStyle = "#2a1710";
       ctx.fillRect(x + 23, y + 17, 5, 3);
       ctx.fillStyle = "#7d8790";
+      ctx.fillRect(x + 15, y + 38, 5, 7);
+      ctx.fillRect(x + 32, y + 38, 5, 7);
+    }
+
+    function drawBlueWhiteBritishShorthair(x, y) {
+      ctx.fillStyle = "#eef6f7";
+      ctx.fillRect(x + 9, y + 16, 34, 22);
+      ctx.fillRect(x + 12, y + 4, 25, 21);
+      ctx.fillStyle = "#6f8fa3";
+      ctx.fillRect(x + 9, y + 16, 14, 13);
+      ctx.fillRect(x + 28, y + 16, 15, 12);
+      ctx.fillRect(x + 12, y + 4, 11, 9);
+      ctx.fillRect(x + 31, y + 4, 7, 12);
+      ctx.fillRect(x + 11, y + 1, 7, 8);
+      ctx.fillRect(x + 31, y + 1, 7, 8);
+      ctx.fillRect(x + 40, y + 19, 9, 5);
+      ctx.fillRect(x + 45, y + 14, 5, 8);
+      ctx.fillStyle = "#fff6e7";
+      ctx.fillRect(x + 19, y + 13, 13, 10);
+      ctx.fillRect(x + 21, y + 27, 12, 11);
+      ctx.fillStyle = "#f1b35f";
+      ctx.fillRect(x + 18, y + 12, 3, 3);
+      ctx.fillRect(x + 29, y + 12, 3, 3);
+      ctx.fillStyle = "#2a1710";
+      ctx.fillRect(x + 23, y + 17, 5, 3);
+      ctx.fillStyle = "#6f8fa3";
       ctx.fillRect(x + 15, y + 38, 5, 7);
       ctx.fillRect(x + 32, y + 38, 5, 7);
     }
